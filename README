@@ -1,3 +1,5 @@
+Brute force password cracking simulation written in CUDA in order to crack randomly generated password combinations utilizing the GPU. Also can perform the same algorithm on the CPU if comparison between the two device's computational power is desired. Password length and alphabet can be modified by changing the #defines at the top of the file.
+
 Running the program:
 
 	I intentionally left a makefile out of this, so that using different compute
