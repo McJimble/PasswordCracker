@@ -22,7 +22,7 @@ Expected output:
 	
 	With the -cpu flag: The same thing as normal will print, but when the GPU password
 	completes, the CPU will crack the same password under the same conditions. Once the
-	CPU cracks it, the number of guesses sequentially check and the amount of time
+	CPU cracks it, the number of guesses sequentially checked and the amount of time
 	elapsed will print.
 	
 	Optional: There ae some #define methods at the top of the main .cu file that can be
