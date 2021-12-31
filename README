@@ -1,0 +1,44 @@
+Running the program:
+
+	I intentionally left a makefile out of this, so that using different compute
+	capabilities could be done when compiling as needed.
+	
+	To compile, simply type "nvcc passCracker.cu" into the terminal.
+	To run, type "./a.out"
+	
+	You can also use the optional flag "-cpu" when running. This will make the program
+	run the CPU's version of the algorithm with the same passwords immediately after
+	the GPU's version runs. This can be used to test and compare the two if desired.
+	
+Expected output:
+
+	Without -cpu flag: The randomly generated password (length 5 by default) will
+	print to the terminal. The GPU crack will then start, printing the maximum number
+	of guesses that would have to be done to crack the password along with the number
+	of guesses each GPU thread will compute. Once the password is found, the time
+	elapsed will print.
+	
+	With the -cpu flag: The same thing as normal will print, but when the GPU password
+	completes, the CPU will crack the same password under the same conditions. Once the
+	CPU cracks it, the number of guesses sequentially check and the amount of time
+	elapsed will print.
+	
+	Optional: There ae some #define methods at the top of the main .cu file that can be
+	changed to test different conditions. Their effects are listed below:
+	- #define __DEBUG -> if uncommented, two additional things will happen. The number
+	of guesses the GPU tried will print along with its other results. Also, a file
+	with the GPU's computation times will be created.
+	
+	- #define N  -> number of threads to use in the GPU kernel function. You can change
+	this if you want, but 4096*4096 had the best results.
+	#define THREADS_PER_BLOCK -> number of threads per block in the GPU kernel function.
+	This can also be changed from it's initial value of 128 but is not recommended.
+	 
+	#define PASS_LENGTH -> Length of randomly generated passwords to use. Keep in mind that
+	length of 6 or higher will take some time!
+	
+	#define ALPHABET_SIZE -> Size of the alphabet that will be check for and that passwords
+	will use. PLEASE NOTE that this much match the length of the constant string that 
+	contains the actual characters to use!!
+	
+	
